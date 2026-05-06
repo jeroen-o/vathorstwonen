@@ -47,968 +47,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --navy:#161A5C;
-  --navy-deep:#0E1244;
-  --navy-soft:#262B7A;
-  --magenta:#E91E8C;
-  --magenta-deep:#C5106F;
-  --skyblue:#1FA9E0;
-  --cream:#FAF7F2;
-  --paper:#F2EEE6;
-  --ink:#0E1024;
-  --muted:#6E7186;
-  --line:#E4DFD3;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Manrope',-apple-system,sans-serif;
-  font-size:16px;
-  line-height:1.6;
-  color:var(--ink);
-  background:var(--cream);
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-img{display:block;max-width:100%;height:auto}
-a{color:inherit;text-decoration:none}
-.serif{font-family:'Instrument Serif',serif;font-weight:400;letter-spacing:-0.01em}
-
-/* ============== UTILITY BAR ============== */
-.utility{
-  background:var(--navy-deep);
-  color:#fff;
-  font-size:13px;
-  letter-spacing:0.02em;
-  padding:10px 0;
-}
-.utility-inner{
-  max-width:1320px;margin:0 auto;padding:0 32px;
-  display:flex;justify-content:space-between;align-items:center;
-}
-.utility-left{display:flex;gap:28px;flex-wrap:wrap}
-.utility a:hover{color:var(--magenta)}
-.utility-right{display:flex;gap:20px;align-items:center}
-.utility-right span{opacity:0.6}
-
-/* ============== HEADER ============== */
-.header{
-  position:sticky;top:0;z-index:100;
-  background:rgba(250,247,242,0.92);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(22,26,92,0.08);
-}
-.header-inner{
-  max-width:1320px;margin:0 auto;padding:18px 32px;
-  display:flex;align-items:center;justify-content:space-between;gap:40px;
-}
-.logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
-.logo-img{
-  height:54px;width:auto;
-  display:block;
-  transition:opacity .25s;
-}
-.logo:hover .logo-img{opacity:0.85}
-/* On the dark footer, the logo is on a navy background — white-on-white block + invert keeps brand recognisable */
-.logo-img--inverted{
-  filter:brightness(0) invert(1);
-  opacity:0.92;
-}
-
-.nav{display:flex;gap:32px;align-items:center}
-.nav-item{
-  position:relative;
-  font-size:14.5px;
-  font-weight:500;
-  color:var(--ink);
-  cursor:pointer;
-  padding:8px 0;
-  transition:color .2s;
-}
-.nav-item:hover{color:var(--magenta)}
-.nav-item.has-dropdown::after{
-  content:'';display:inline-block;width:6px;height:6px;
-  border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
-  transform:rotate(45deg);margin-left:6px;margin-bottom:2px;
-}
-.nav-cta{
-  background:var(--magenta);color:#fff;
-  padding:12px 22px;border-radius:999px;
-  font-weight:600;font-size:14px;
-  transition:all .2s;
-  display:inline-flex;align-items:center;gap:8px;
-}
-.nav-cta:hover{background:var(--magenta-deep);transform:translateY(-1px)}
-.nav-cta svg{width:14px;height:14px}
-
-.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:10px;width:48px;height:48px;z-index:101}
-.menu-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px auto;transition:.3s;transform-origin:center}
-.menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
-.menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-/* ============== HERO ============== */
-.hero{
-  position:relative;
-  padding:80px 0 100px;
-  overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;
-  top:-200px;right:-200px;width:600px;height:600px;
-  background:radial-gradient(circle,rgba(233,30,140,0.08),transparent 70%);
-  border-radius:50%;
-  z-index:0;
-}
-.hero-inner{
-  max-width:1320px;margin:0 auto;padding:0 32px;
-  display:grid;grid-template-columns:1.05fr 1fr;gap:80px;
-  align-items:center;position:relative;z-index:1;
-}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:12px;
-  font-size:13px;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--navy);font-weight:600;
-  margin-bottom:32px;
-}
-.hero-eyebrow::before{
-  content:'';display:block;width:32px;height:1.5px;background:var(--magenta);
-}
-.hero h1{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(48px,6.6vw,96px);
-  font-weight:400;
-  line-height:0.96;
-  letter-spacing:-0.02em;
-  color:var(--navy);
-  margin-bottom:32px;
-}
-.hero h1 em{
-  font-style:italic;
-  color:var(--magenta);
-}
-.hero h1 .accent{
-  position:relative;display:inline-block;
-}
-.hero h1 .accent::after{
-  content:'';position:absolute;left:0;right:0;bottom:6px;height:14px;
-  background:rgba(233,30,140,0.18);z-index:-1;
-}
-.hero p.lead{
-  font-size:18px;
-  line-height:1.65;
-  color:#3A3D52;
-  max-width:520px;
-  margin-bottom:40px;
-}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.btn-primary{
-  background:var(--navy);color:#fff;
-  padding:18px 32px;border-radius:999px;
-  font-weight:600;font-size:15px;
-  display:inline-flex;align-items:center;gap:10px;
-  transition:all .25s;border:none;cursor:pointer;
-}
-.btn-primary:hover{background:var(--magenta);transform:translateY(-2px);box-shadow:0 12px 32px -8px rgba(233,30,140,0.4)}
-.btn-secondary{
-  padding:18px 28px;
-  font-weight:600;font-size:15px;
-  color:var(--navy);
-  display:inline-flex;align-items:center;gap:10px;
-  border-bottom:2px solid var(--navy);
-  transition:all .25s;
-}
-.btn-secondary:hover{color:var(--magenta);border-color:var(--magenta)}
-.btn-arrow{
-  display:inline-grid;place-items:center;
-  width:32px;height:32px;border-radius:50%;
-  background:var(--magenta);
-  transition:transform .25s;
-}
-.btn-primary:hover .btn-arrow{transform:translateX(4px)}
-.btn-arrow svg{width:14px;height:14px;color:#fff}
-
-.hero-visual{
-  position:relative;
-  aspect-ratio:4/5;
-}
-.hero-img{
-  position:absolute;inset:0;
-  border-radius:8px;
-  overflow:hidden;
-  background:var(--navy);
-}
-.hero-img img{
-  width:100%;height:100%;object-fit:cover;
-}
-.hero-card{
-  position:absolute;
-  bottom:32px;left:-40px;
-  background:#fff;
-  padding:24px 28px;
-  border-radius:6px;
-  box-shadow:0 30px 60px -15px rgba(14,16,36,0.25);
-  display:flex;align-items:center;gap:18px;
-  max-width:320px;
-}
-.hero-card-mark{
-  width:54px;height:54px;flex-shrink:0;
-  background:var(--magenta);border-radius:50%;
-  display:grid;place-items:center;
-}
-.hero-card-mark svg{width:24px;height:24px;color:#fff}
-.hero-card-text{font-size:13px;line-height:1.4;color:var(--ink)}
-.hero-card-text strong{display:block;font-family:'Instrument Serif',serif;font-size:18px;color:var(--navy);font-weight:400;margin-bottom:2px}
-
-.hero-tag{
-  position:absolute;
-  top:30px;right:-20px;
-  background:var(--cream);
-  border:1px solid var(--line);
-  padding:14px 18px;
-  border-radius:999px;
-  font-size:12px;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
-  color:var(--navy);
-  font-weight:600;
-  transform:rotate(4deg);
-  display:flex;align-items:center;gap:8px;
-}
-.hero-tag::before{
-  content:'';width:8px;height:8px;border-radius:50%;background:var(--magenta);
-  animation:pulse 2s infinite;
-}
-@keyframes pulse{
-  0%,100%{opacity:1;transform:scale(1)}
-  50%{opacity:.6;transform:scale(1.3)}
-}
-
-/* ============== TRUST STRIP ============== */
-.trust{
-  background:var(--navy);
-  color:#fff;
-  padding:48px 0;
-}
-.trust-inner{
-  max-width:1320px;margin:0 auto;padding:0 32px;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:48px;
-}
-.trust-item{
-  display:flex;flex-direction:column;gap:6px;
-  padding-left:24px;
-  border-left:1px solid rgba(255,255,255,0.18);
-}
-.trust-item:first-child{border-left:none;padding-left:0}
-.trust-num{
-  font-family:'Instrument Serif',serif;
-  font-size:48px;font-weight:400;line-height:1;
-  color:#fff;
-}
-.trust-num em{font-style:italic;color:var(--magenta)}
-.trust-label{
-  font-size:13px;
-  letter-spacing:0.06em;
-  color:rgba(255,255,255,0.7);
-  margin-top:4px;
-}
-
-/* ============== INTRO SECTION ============== */
-.intro{padding:140px 0 100px}
-.intro-inner{
-  max-width:1320px;margin:0 auto;padding:0 32px;
-  display:grid;grid-template-columns:1fr 1.5fr;gap:80px;
-}
-.section-eyebrow{
-  display:inline-flex;align-items:center;gap:12px;
-  font-size:12px;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--magenta);font-weight:700;
-  margin-bottom:24px;
-}
-.section-eyebrow::before{
-  content:'';display:block;width:24px;height:1.5px;background:var(--magenta);
-}
-.intro h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(36px,4.5vw,64px);
-  font-weight:400;line-height:1.05;
-  letter-spacing:-0.02em;
-  color:var(--navy);
-}
-.intro h2 em{font-style:italic;color:var(--magenta)}
-.intro-body{font-size:17px;line-height:1.75;color:#3A3D52}
-.intro-body p{margin-bottom:20px}
-.intro-body p:first-child::first-letter{
-  font-family:'Instrument Serif',serif;
-  font-size:64px;
-  float:left;
-  line-height:0.9;
-  margin:8px 12px 0 0;
-  color:var(--magenta);
-  font-style:italic;
-}
-.intro-sig{
-  margin-top:36px;display:flex;align-items:center;gap:18px;
-  padding-top:28px;border-top:1px solid var(--line);
-}
-.sig-name{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);font-style:italic}
-.sig-role{font-size:13px;color:var(--muted);letter-spacing:0.04em}
-
-/* ============== SERVICES ============== */
-.services{
-  padding:100px 0;
-  background:var(--paper);
-  position:relative;
-}
-.services-inner{
-  max-width:1320px;margin:0 auto;padding:0 32px;
-}
-.services-head{
-  display:grid;grid-template-columns:1fr 1fr;gap:64px;
-  align-items:end;margin-bottom:64px;
-}
-.services h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(36px,4.5vw,64px);
-  font-weight:400;line-height:1.05;
-  letter-spacing:-0.02em;
-  color:var(--navy);
-}
-.services h2 em{font-style:italic;color:var(--magenta)}
-.services-head-text{
-  font-size:16px;line-height:1.7;color:#3A3D52;max-width:480px;
-}
-.service-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-}
-.service-card{
-  background:#fff;
-  border-radius:8px;
-  overflow:hidden;
-  display:flex;flex-direction:column;
-  transition:transform .35s ease,box-shadow .35s ease;
-  cursor:pointer;
-  border:1px solid var(--line);
-}
-.service-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 30px 60px -20px rgba(14,16,36,0.2);
-}
-.service-img{
-  aspect-ratio:5/3;
-  overflow:hidden;
-  background:var(--navy);
-}
-.service-img img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .8s ease;
-}
-.service-card:hover .service-img img{transform:scale(1.05)}
-.service-body{padding:32px 28px;flex:1;display:flex;flex-direction:column}
-.service-num{
-  font-family:'Instrument Serif',serif;
-  font-size:14px;color:var(--magenta);
-  font-style:italic;margin-bottom:14px;
-}
-.service-card h3{
-  font-family:'Instrument Serif',serif;
-  font-size:30px;font-weight:400;line-height:1.1;
-  color:var(--navy);margin-bottom:14px;
-  letter-spacing:-0.01em;
-}
-.service-card p{
-  font-size:15px;line-height:1.65;color:#3A3D52;
-  flex:1;margin-bottom:24px;
-}
-.service-link{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:14px;font-weight:600;
-  color:var(--navy);
-  border-bottom:1.5px solid var(--navy);
-  padding-bottom:6px;
-  align-self:flex-start;
-  transition:all .25s;
-}
-.service-card:hover .service-link{color:var(--magenta);border-color:var(--magenta);gap:14px}
-
-/* ============== JOUW SITUATIE ============== */
-.situatie{padding:140px 0}
-.situatie-inner{max-width:1320px;margin:0 auto;padding:0 32px}
-.situatie-head{
-  text-align:center;margin-bottom:80px;
-  display:flex;flex-direction:column;align-items:center;
-}
-.situatie h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(36px,4.5vw,72px);
-  font-weight:400;line-height:1.05;
-  letter-spacing:-0.02em;
-  color:var(--navy);
-  max-width:900px;
-}
-.situatie h2 em{font-style:italic;color:var(--magenta)}
-.situatie-head p{
-  margin-top:20px;font-size:17px;color:var(--muted);max-width:640px;
-}
-.situatie-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
-  border-radius:12px;overflow:hidden;
-}
-.situatie-card{
-  background:var(--cream);padding:48px;
-  display:flex;flex-direction:column;
-  cursor:pointer;
-  transition:background .25s;
-  position:relative;
-}
-.situatie-card:hover{background:#fff}
-.situatie-card:hover .situatie-arrow{
-  transform:translate(4px,-4px);background:var(--magenta);color:#fff;
-}
-.situatie-num{
-  font-family:'Instrument Serif',serif;
-  font-style:italic;font-size:14px;
-  color:var(--magenta);margin-bottom:24px;
-  letter-spacing:0.05em;
-}
-.situatie-card h3{
-  font-family:'Instrument Serif',serif;
-  font-size:34px;font-weight:400;
-  color:var(--navy);line-height:1.1;
-  margin-bottom:18px;letter-spacing:-0.01em;
-}
-.situatie-card p{
-  font-size:15px;line-height:1.7;color:#3A3D52;
-  margin-bottom:32px;flex:1;
-}
-.situatie-arrow{
-  position:absolute;top:48px;right:48px;
-  width:46px;height:46px;border-radius:50%;
-  border:1.5px solid var(--navy);
-  display:grid;place-items:center;
-  color:var(--navy);
-  transition:all .3s;
-}
-.situatie-arrow svg{width:16px;height:16px}
-
-/* ============== ABOUT MICHEL ============== */
-.about{
-  background:var(--navy);
-  color:#fff;
-  padding:140px 0;
-  position:relative;
-  overflow:hidden;
-}
-.about::before{
-  content:'';position:absolute;top:-200px;left:-200px;
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(233,30,140,0.15),transparent 70%);
-  border-radius:50%;
-}
-.about-inner{
-  max-width:1320px;margin:0 auto;padding:0 32px;
-  display:grid;grid-template-columns:1fr 1.1fr;gap:80px;
-  align-items:center;position:relative;z-index:1;
-}
-.about-visual{position:relative}
-.about-visual img{
-  width:100%;border-radius:8px;
-  aspect-ratio:4/5;object-fit:cover;
-}
-.about-badge{
-  position:absolute;
-  bottom:-30px;right:-20px;
-  background:var(--magenta);
-  color:#fff;
-  width:160px;height:160px;
-  border-radius:50%;
-  display:grid;place-items:center;
-  text-align:center;
-  font-family:'Instrument Serif',serif;
-  font-style:italic;
-  font-size:18px;
-  line-height:1.2;
-  padding:20px;
-  transform:rotate(-8deg);
-  box-shadow:0 20px 40px -10px rgba(233,30,140,0.5);
-}
-.about-text .section-eyebrow{color:var(--magenta)}
-.about-text .section-eyebrow::before{background:var(--magenta)}
-.about h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(36px,4.5vw,64px);
-  font-weight:400;line-height:1.05;
-  letter-spacing:-0.02em;
-  color:#fff;margin-bottom:32px;
-}
-.about h2 em{font-style:italic;color:var(--magenta)}
-.about-text p{
-  font-size:16px;line-height:1.75;
-  color:rgba(255,255,255,0.78);
-  margin-bottom:20px;
-}
-.about-credentials{
-  margin-top:40px;
-  display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
-}
-.cred{
-  padding:20px 0;
-  border-top:1px solid rgba(255,255,255,0.18);
-}
-.cred-num{
-  font-family:'Instrument Serif',serif;
-  font-size:36px;color:var(--magenta);
-  font-style:italic;line-height:1;
-}
-.cred-label{font-size:13px;color:rgba(255,255,255,0.7);margin-top:6px}
-
-/* ============== RECENTE WONINGEN ============== */
-.recent{padding:140px 0;background:var(--paper)}
-.recent-inner{max-width:1320px;margin:0 auto;padding:0 32px}
-.recent-head{
-  display:flex;justify-content:space-between;align-items:end;
-  margin-bottom:64px;gap:40px;flex-wrap:wrap;
-}
-.recent h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(36px,4.5vw,64px);
-  font-weight:400;line-height:1.05;
-  letter-spacing:-0.02em;color:var(--navy);
-  max-width:680px;
-}
-.recent h2 em{font-style:italic;color:var(--magenta)}
-.recent-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
-}
-.property{
-  background:#fff;border-radius:8px;overflow:hidden;
-  cursor:pointer;
-  transition:transform .35s,box-shadow .35s;
-  border:1px solid var(--line);
-}
-.property:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(14,16,36,0.2)}
-.property-img{
-  position:relative;aspect-ratio:4/3;overflow:hidden;
-  background:#eee;
-}
-.property-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
-.property:hover .property-img img{transform:scale(1.06)}
-.property-status{
-  position:absolute;top:18px;left:18px;
-  background:var(--magenta);color:#fff;
-  padding:7px 14px;border-radius:999px;
-  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-  font-weight:700;
-}
-.property-status.sold{background:#16a34a}
-.property-body{padding:24px}
-.property-loc{
-  font-size:12px;letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--magenta);font-weight:700;margin-bottom:8px;
-}
-.property h3{
-  font-family:'Instrument Serif',serif;
-  font-size:24px;font-weight:400;color:var(--navy);
-  line-height:1.2;margin-bottom:16px;letter-spacing:-0.01em;
-}
-.property-meta{
-  display:flex;gap:18px;
-  padding-top:16px;border-top:1px solid var(--line);
-  font-size:13px;color:var(--muted);
-}
-.property-meta span{display:flex;align-items:center;gap:6px}
-.property-meta strong{color:var(--ink);font-weight:600}
-.property-price{
-  font-family:'Instrument Serif',serif;
-  font-size:22px;color:var(--navy);font-style:italic;
-  margin-top:8px;
-}
-
-/* ============== WAARDE CTA ============== */
-.value-cta{
-  padding:120px 0;
-  background:var(--cream);
-  position:relative;overflow:hidden;
-}
-.value-cta-inner{
-  max-width:1320px;margin:0 auto;padding:0 32px;
-}
-.value-cta-box{
-  background:var(--navy);
-  border-radius:16px;
-  padding:80px 80px;
-  display:grid;grid-template-columns:1.4fr 1fr;gap:64px;
-  align-items:center;
-  position:relative;overflow:hidden;
-}
-.value-cta-box::before{
-  content:'';position:absolute;
-  top:-150px;right:-150px;width:400px;height:400px;
-  background:radial-gradient(circle,rgba(233,30,140,0.3),transparent 70%);
-  border-radius:50%;
-}
-.value-cta-text{position:relative;z-index:2}
-.value-cta-text .section-eyebrow{color:var(--magenta)}
-.value-cta-text .section-eyebrow::before{background:var(--magenta)}
-.value-cta-text h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(36px,4vw,56px);
-  font-weight:400;line-height:1.05;
-  letter-spacing:-0.02em;
-  color:#fff;margin-bottom:24px;
-}
-.value-cta-text h2 em{font-style:italic;color:var(--magenta)}
-.value-cta-text p{
-  color:rgba(255,255,255,0.78);
-  font-size:16px;line-height:1.7;margin-bottom:32px;max-width:480px;
-}
-.value-form-card{
-  background:#fff;
-  border-radius:12px;
-  padding:36px;
-  position:relative;z-index:2;
-}
-.value-form-card h3{
-  font-family:'Instrument Serif',serif;
-  font-size:26px;color:var(--navy);font-weight:400;
-  margin-bottom:8px;letter-spacing:-0.01em;
-}
-.value-form-card p.sub{
-  font-size:14px;color:var(--muted);margin-bottom:24px;
-}
-.field{
-  width:100%;padding:14px 16px;
-  border:1px solid var(--line);
-  border-radius:6px;
-  font-family:inherit;font-size:15px;
-  margin-bottom:12px;background:var(--cream);
-  transition:all .2s;
-}
-.field:focus{outline:none;border-color:var(--magenta);background:#fff}
-.value-form-card button{
-  width:100%;padding:16px;
-  background:var(--magenta);color:#fff;
-  border:none;border-radius:6px;
-  font-family:inherit;font-weight:600;font-size:15px;
-  cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  transition:background .2s;
-}
-.value-form-card button:hover{background:var(--magenta-deep)}
-
-/* ============== VERKOCHT BANNER ============== */
-.verkocht-band{
-  height:340px;
-  position:relative;
-  overflow:hidden;
-}
-.verkocht-band img{
-  position:absolute;inset:0;
-  width:100%;height:100%;object-fit:cover;
-}
-.verkocht-band::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(22,26,92,0.85) 0%,rgba(22,26,92,0.3) 60%,transparent 100%);
-}
-.verkocht-band-content{
-  position:absolute;inset:0;display:flex;align-items:center;
-  max-width:1320px;margin:0 auto;padding:0 32px;
-  z-index:2;color:#fff;
-}
-.verkocht-band-content h3{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(32px,4vw,52px);
-  font-weight:400;line-height:1.1;
-  letter-spacing:-0.02em;max-width:560px;
-}
-.verkocht-band-content em{font-style:italic;color:var(--magenta)}
-
-/* ============== CONTACT ============== */
-.contact{padding:140px 0;background:var(--cream)}
-.contact-inner{
-  max-width:1320px;margin:0 auto;padding:0 32px;
-  display:grid;grid-template-columns:1fr 1.2fr;gap:96px;
-}
-.contact h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(36px,4.5vw,64px);
-  font-weight:400;line-height:1.05;
-  letter-spacing:-0.02em;color:var(--navy);
-  margin-bottom:32px;
-}
-.contact h2 em{font-style:italic;color:var(--magenta)}
-.contact-info p{font-size:16px;line-height:1.7;color:#3A3D52;margin-bottom:24px}
-.contact-list{margin-top:40px;display:flex;flex-direction:column;gap:24px}
-.contact-item{display:flex;gap:18px;align-items:flex-start}
-.contact-icon{
-  width:44px;height:44px;flex-shrink:0;
-  background:#fff;border:1px solid var(--line);
-  border-radius:50%;display:grid;place-items:center;
-  color:var(--magenta);
-}
-.contact-icon svg{width:18px;height:18px}
-.contact-item-label{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px}
-.contact-item-value{font-family:'Instrument Serif',serif;font-size:22px;color:var(--navy);font-weight:400}
-
-.contact-form{
-  background:#fff;border-radius:12px;
-  padding:48px;border:1px solid var(--line);
-}
-.contact-form h3{
-  font-family:'Instrument Serif',serif;
-  font-size:32px;color:var(--navy);font-weight:400;
-  margin-bottom:8px;letter-spacing:-0.01em;
-}
-.contact-form .sub{color:var(--muted);font-size:15px;margin-bottom:32px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px}
-.form-group{display:flex;flex-direction:column;margin-bottom:16px}
-.form-group label{
-  font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--navy);font-weight:600;margin-bottom:8px;
-}
-.form-group textarea{
-  resize:vertical;min-height:120px;font-family:inherit;
-}
-.form-check{
-  display:flex;align-items:flex-start;gap:12px;margin:8px 0 24px;
-  font-size:14px;color:var(--muted);
-}
-.form-check input{margin-top:4px}
-.form-check a{color:var(--magenta);text-decoration:underline}
-.contact-form button{
-  width:100%;padding:18px;
-  background:var(--navy);color:#fff;
-  border:none;border-radius:999px;
-  font-family:inherit;font-weight:600;font-size:15px;
-  cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  transition:all .25s;
-}
-.contact-form button:hover{background:var(--magenta);transform:translateY(-2px)}
-
-/* ============== FOOTER ============== */
-.footer{
-  background:var(--navy-deep);color:#fff;
-  padding:80px 0 32px;
-}
-.footer-inner{max-width:1320px;margin:0 auto;padding:0 32px}
-.footer-grid{
-  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:64px;
-  margin-bottom:64px;
-}
-.footer-logo{display:flex;align-items:center;margin-bottom:24px}
-.footer-logo .logo-img{height:48px}
-.footer-tagline{
-  font-family:'Instrument Serif',serif;
-  font-size:22px;line-height:1.4;
-  color:rgba(255,255,255,0.85);
-  font-style:italic;max-width:340px;
-}
-.footer h4{
-  font-size:13px;letter-spacing:0.18em;text-transform:uppercase;
-  color:#fff;margin-bottom:24px;font-weight:700;
-}
-.footer ul{list-style:none}
-.footer li{margin-bottom:12px}
-.footer a{
-  color:rgba(255,255,255,0.65);font-size:14.5px;
-  transition:color .2s;
-}
-.footer a:hover{color:var(--magenta)}
-.footer-bottom{
-  padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
-  font-size:13px;color:rgba(255,255,255,0.5);
-}
-.footer-bottom a:hover{color:var(--magenta)}
-.footer-socials{display:flex;gap:14px}
-.footer-socials a{
-  width:38px;height:38px;border-radius:50%;
-  border:1px solid rgba(255,255,255,0.15);
-  display:grid;place-items:center;
-  color:rgba(255,255,255,0.6);
-  transition:all .25s;
-}
-.footer-socials a:hover{border-color:var(--magenta);color:var(--magenta);transform:translateY(-2px)}
-.footer-socials svg{width:16px;height:16px}
-
-/* ============== REGIO/WIJKEN ============== */
-.regio{padding:120px 0;background:var(--paper)}
-.regio-inner{max-width:1320px;margin:0 auto;padding:0 32px}
-.regio-head{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:end;margin-bottom:56px}
-.regio h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(36px,4.5vw,64px);font-weight:400;line-height:1.05;
-  letter-spacing:-0.02em;color:var(--navy);
-}
-.regio h2 em{font-style:italic;color:var(--magenta)}
-.regio-head p{font-size:16px;line-height:1.7;color:#3A3D52;max-width:480px}
-.wijken-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;
-}
-.wijk{
-  background:var(--cream);padding:32px 24px;
-  display:flex;flex-direction:column;gap:6px;
-  transition:background .25s;cursor:pointer;
-}
-.wijk:hover{background:#fff}
-.wijk-name{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);font-weight:400;letter-spacing:-0.01em}
-.wijk-detail{font-size:13px;color:var(--muted);line-height:1.5}
-
-/* ============== KAART ============== */
-.map-section{padding:0 0 0 0;background:var(--cream)}
-.map-wrap{
-  height:420px;width:100%;
-  position:relative;overflow:hidden;
-  background:var(--paper);
-}
-.map-wrap iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(0.3) contrast(1.05)}
-.map-overlay{
-  position:absolute;top:32px;left:32px;
-  background:#fff;padding:24px 28px;
-  border-radius:8px;box-shadow:0 20px 40px -10px rgba(14,16,36,0.2);
-  max-width:320px;z-index:2;
-}
-.map-overlay strong{
-  display:block;font-family:'Instrument Serif',serif;
-  font-size:22px;color:var(--navy);font-weight:400;margin-bottom:6px;
-}
-.map-overlay p{font-size:14px;color:#3A3D52;line-height:1.5}
-.map-overlay-meta{
-  margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
-  font-size:12px;color:var(--muted);letter-spacing:0.04em;
-}
-
-/* ============== FAQ ============== */
-.faq{padding:140px 0;background:#fff}
-.faq-inner{max-width:920px;margin:0 auto;padding:0 32px}
-.faq-head{text-align:center;margin-bottom:64px;display:flex;flex-direction:column;align-items:center}
-.faq h2{
-  font-family:'Instrument Serif',serif;
-  font-size:clamp(36px,4.5vw,64px);font-weight:400;line-height:1.05;
-  letter-spacing:-0.02em;color:var(--navy);max-width:720px;
-}
-.faq h2 em{font-style:italic;color:var(--magenta)}
-.faq-head p{margin-top:20px;font-size:17px;color:var(--muted);max-width:540px}
-.faq-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
-.faq-item{border-bottom:1px solid var(--line)}
-.faq-q{
-  width:100%;text-align:left;
-  padding:28px 0;
-  background:none;border:none;cursor:pointer;
-  display:flex;justify-content:space-between;align-items:center;gap:24px;
-  font-family:'Instrument Serif',serif;
-  font-size:22px;color:var(--navy);font-weight:400;letter-spacing:-0.01em;
-  transition:color .2s;
-}
-.faq-q:hover{color:var(--magenta)}
-.faq-icon{
-  width:36px;height:36px;border-radius:50%;
-  border:1.5px solid var(--navy);flex-shrink:0;
-  display:grid;place-items:center;
-  transition:all .3s;color:var(--navy);
-}
-.faq-q[aria-expanded="true"] .faq-icon{background:var(--magenta);border-color:var(--magenta);color:#fff;transform:rotate(45deg)}
-.faq-icon svg{width:14px;height:14px}
-.faq-a{
-  max-height:0;overflow:hidden;
-  transition:max-height .35s ease, padding .35s ease;
-  padding:0;
-}
-.faq-q[aria-expanded="true"] + .faq-a{max-height:600px;padding-bottom:28px}
-.faq-a p{font-size:16px;line-height:1.75;color:#3A3D52;max-width:680px}
-.faq-a p + p{margin-top:14px}
-
-/* ============== RESPONSIVE ============== */
-@media (max-width:1024px){
-  .nav{
-    position:fixed;
-    top:0;right:-100%;
-    width:min(85vw,360px);height:100vh;height:100dvh;
-    background:var(--cream);
-    flex-direction:column;
-    align-items:flex-start;
-    padding:120px 36px 36px;
-    gap:0;
-    box-shadow:-30px 0 60px -20px rgba(0,0,0,0.2);
-    transition:right .35s ease;
-    z-index:99;
-    overflow-y:auto;
-  }
-  .nav.open{right:0}
-  .nav .nav-item{
-    display:block;width:100%;
-    padding:18px 0;
-    font-size:18px;
-    border-bottom:1px solid var(--line);
-  }
-  .nav .nav-item:last-of-type{border-bottom:none}
-  .nav .nav-cta{
-    margin-top:24px;width:100%;justify-content:center;padding:18px;
-    font-size:15px;
-  }
-  .nav-backdrop{
-    position:fixed;inset:0;
-    background:rgba(14,16,36,0.5);
-    opacity:0;pointer-events:none;
-    transition:opacity .3s;z-index:98;
-  }
-  .nav-backdrop.show{opacity:1;pointer-events:auto}
-  body.nav-open{overflow:hidden}
-  .menu-toggle{display:block}
-  .hero-inner,.intro-inner,.about-inner,.contact-inner,.value-cta-box{grid-template-columns:1fr;gap:48px}
-  .services-head{grid-template-columns:1fr;gap:24px;align-items:start}
-  .service-grid,.recent-grid{grid-template-columns:repeat(2,1fr)}
-  .trust-inner{grid-template-columns:repeat(2,1fr);gap:32px}
-  .trust-item:nth-child(3){border-left:none;padding-left:0}
-  .situatie-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
-  .value-cta-box{padding:48px 36px}
-  .hero-card{left:0}
-  .hero-tag{right:0}
-  .about-badge{right:20px;width:130px;height:130px;font-size:15px}
-  .regio-head{grid-template-columns:1fr;gap:24px;align-items:start}
-  .wijken-grid{grid-template-columns:repeat(2,1fr)}
-  .map-overlay{left:20px;right:20px;top:20px;max-width:none}
-}
-@media (max-width:640px){
-  .utility-left{font-size:12px;gap:16px}
-  .utility-right{display:none}
-  .header-inner{padding:14px 20px}
-  .hero,.intro,.services,.situatie,.about,.recent,.contact,.value-cta,.regio,.faq{padding:64px 0}
-  .hero-inner,.intro-inner,.about-inner,.contact-inner,.services-inner,.situatie-inner,.recent-inner,.value-cta-inner,.utility-inner,.header-inner,.footer-inner,.regio-inner,.faq-inner{padding-left:20px;padding-right:20px}
-  .service-grid,.recent-grid,.about-credentials{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .situatie-card{padding:36px 28px}
-  .situatie-arrow{top:36px;right:28px}
-  .contact-form{padding:32px 24px}
-  .value-cta-box{padding:40px 24px}
-  .footer-grid{grid-template-columns:1fr;gap:36px}
-  .verkocht-band-content h3{font-size:28px}
-  .intro-body p:first-child::first-letter{font-size:48px}
-  .logo-img{height:42px}
-  .wijken-grid{grid-template-columns:1fr}
-  .faq-q{font-size:18px;padding:20px 0;gap:16px}
-  .faq-icon{width:32px;height:32px}
-  .map-wrap{height:340px}
-  .property-meta{flex-wrap:wrap;gap:10px}
-  .nav-cta{padding:10px 18px;font-size:13px}
-}
-
-/* Animations */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hero h1,.hero p.lead,.hero-actions,.hero-eyebrow,.hero-visual{animation:fadeUp .8s ease backwards}
-.hero-eyebrow{animation-delay:.1s}
-.hero h1{animation-delay:.2s}
-.hero p.lead{animation-delay:.4s}
-.hero-actions{animation-delay:.6s}
-.hero-visual{animation-delay:.3s}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -1030,16 +69,16 @@ a{color:inherit;text-decoration:none}
 <!-- ====== HEADER ====== -->
 <header class="header">
   <div class="header-inner">
-    <a href="/" class="logo" aria-label="Vathorst Wonen Makelaars - home">
-      <img src="images/logo.png" alt="Vathorst Wonen Makelaars" width="200" height="82" class="logo-img">
+    <a href="index.html" class="logo" aria-label="Vathorst Wonen Makelaars - home">
+      <img src="logo.png" alt="Vathorst Wonen Makelaars" width="200" height="82" class="logo-img">
     </a>
 
     <nav class="nav" id="mainNav" aria-label="Hoofdnavigatie">
-      <a href="/woning-kopen/" class="nav-item has-dropdown">Woning kopen</a>
-      <a href="/woning-verkopen/" class="nav-item has-dropdown">Woning verkopen</a>
-      <a href="/jouw-situatie/" class="nav-item has-dropdown">Jouw situatie</a>
-      <a href="/over-ons/" class="nav-item">Over ons</a>
-      <a href="/contact/" class="nav-item">Contact</a>
+      <a href="woning-kopen.html" class="nav-item has-dropdown">Woning kopen</a>
+      <a href="woning-verkopen.html" class="nav-item has-dropdown">Woning verkopen</a>
+      <a href="jouw-situatie.html" class="nav-item has-dropdown">Jouw situatie</a>
+      <a href="over-ons.html" class="nav-item">Over ons</a>
+      <a href="contact.html" class="nav-item">Contact</a>
       <a href="#waardebepaling" class="nav-cta">
         Gratis waardebepaling
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -1078,7 +117,7 @@ a{color:inherit;text-decoration:none}
 
     <div class="hero-visual">
       <div class="hero-img">
-        <img src="images/michel-portrait.jpg" alt="Michel Visser, NVM Register Makelaar bij Vathorst Wonen, te zien in een straat in Vathorst, Amersfoort" width="1280" height="720" fetchpriority="high">
+        <img src="michel-portrait.jpg" alt="Michel Visser, NVM Register Makelaar bij Vathorst Wonen, te zien in een straat in Vathorst, Amersfoort" width="1280" height="720" fetchpriority="high">
       </div>
       <div class="hero-tag">Beschikbaar voor afspraken</div>
       <div class="hero-card">
@@ -1151,13 +190,13 @@ a{color:inherit;text-decoration:none}
     <div class="service-grid">
       <article class="service-card">
         <div class="service-img">
-          <img src="images/banner-waardebepaling.jpg" alt="Banner: gratis waardebepaling van je woning in Amersfoort en Vathorst" width="1280" height="720" loading="lazy">
+          <img src="banner-waardebepaling.jpg" alt="Banner: gratis waardebepaling van je woning in Amersfoort en Vathorst" width="1280" height="720" loading="lazy">
         </div>
         <div class="service-body">
           <div class="service-num">i. Verkoop</div>
           <h3>Jouw verkoop&shy;makelaar</h3>
           <p>De juiste prijs, de juiste presentatie en de juiste timing. Wij begeleiden je van waardebepaling tot sleutel&shy;overdracht.</p>
-          <a href="/woning-verkopen/" class="service-link">
+          <a href="woning-verkopen.html" class="service-link">
             Meer over verkopen
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1166,13 +205,13 @@ a{color:inherit;text-decoration:none}
 
       <article class="service-card">
         <div class="service-img">
-          <img src="images/banner-aankoop.jpg" alt="Banner: aankoopmakelaar Vathorst Wonen voor het kopen van een woning in Amersfoort" width="1280" height="720" loading="lazy">
+          <img src="banner-aankoop.jpg" alt="Banner: aankoopmakelaar Vathorst Wonen voor het kopen van een woning in Amersfoort" width="1280" height="720" loading="lazy">
         </div>
         <div class="service-body">
           <div class="service-num">ii. Aankoop</div>
           <h3>Aankoop&shy;begeleiding</h3>
           <p>Van zoekopdracht tot onderhandeling. Met grondige kennis van de Vathorst-markt halen wij eruit wat erin zit — zonder verrassingen.</p>
-          <a href="/aankoopbegeleiding/" class="service-link">
+          <a href="aankoopbegeleiding.html" class="service-link">
             Meer over aankoop
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1181,13 +220,13 @@ a{color:inherit;text-decoration:none}
 
       <article class="service-card">
         <div class="service-img">
-          <img src="images/michel-advies.jpg" alt="Banner: persoonlijk advies over de actuele woningmarkt in Amersfoort door Michel Visser" width="1280" height="720" loading="lazy">
+          <img src="michel-advies.jpg" alt="Banner: persoonlijk advies over de actuele woningmarkt in Amersfoort door Michel Visser" width="1280" height="720" loading="lazy">
         </div>
         <div class="service-body">
           <div class="service-num">iii. Advies</div>
           <h3>Persoonlijk<br>advies</h3>
           <p>Wat is verstandig in de actuele woningmarkt? Een verkennend gesprek dat verder gaat dan getallen. Wij denken mee, niet voor.</p>
-          <a href="/contact/" class="service-link">
+          <a href="contact.html" class="service-link">
             Plan een gesprek
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1211,36 +250,36 @@ a{color:inherit;text-decoration:none}
         <div class="situatie-num">01 — De afweging</div>
         <h3>Eerst kopen<br>of eerst verkopen?</h3>
         <p>De vraag die elke doorstromer zich stelt. Wij maken de speelruimte concreet, brengen risico's en kansen in kaart en helpen je een weloverwogen keuze maken die past bij jouw situatie.</p>
-        <span class="situatie-arrow">
+        <a class="situatie-arrow" href="eerst-kopen-of-verkopen.html">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </span>
+        </a>
       </article>
 
       <article class="situatie-card">
         <div class="situatie-num">02 — De eerste keer</div>
         <h3>Starter op de<br>woningmarkt</h3>
         <p>Een spannende stap met veel onbekenden. Wij vertalen de markt, leggen contracten en bouwjaren uit, en zorgen dat je zelfverzekerd je eerste woning betreedt — niet ondergesneeuwd raakt.</p>
-        <span class="situatie-arrow">
+        <a class="situatie-arrow" href="jouw-situatie.html">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </span>
+        </a>
       </article>
 
       <article class="situatie-card">
         <div class="situatie-num">03 — Een nieuwe levensfase</div>
         <h3>Senioren die<br>kleiner gaan wonen</h3>
         <p>Kleiner wonen of toch nog liever huren? Wij denken mee over de praktische én emotionele kant van het loslaten van het oude huis en de stap naar iets dat beter past bij nu.</p>
-        <span class="situatie-arrow">
+        <a class="situatie-arrow" href="jouw-situatie.html">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </span>
+        </a>
       </article>
 
       <article class="situatie-card">
         <div class="situatie-num">04 — Als wegen scheiden</div>
         <h3>Scheiding<br>en de woning</h3>
         <p>Als wegen scheiden komt de woning vaak in beeld. Wij begeleiden zorgvuldig en discreet — met aandacht voor beide partijen en heldere financiële inzichten — zodat je verder kunt.</p>
-        <span class="situatie-arrow">
+        <a class="situatie-arrow" href="als-wegen-scheiden.html">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </span>
+        </a>
       </article>
     </div>
   </div>
@@ -1250,7 +289,7 @@ a{color:inherit;text-decoration:none}
 <section class="about">
   <div class="about-inner">
     <div class="about-visual">
-      <img src="images/michel-portrait.jpg" alt="Portret van Michel Visser, NVM Register Makelaar en Register Taxateur in Vathorst, Amersfoort" width="1280" height="720" loading="lazy">
+      <img src="michel-portrait.jpg" alt="Portret van Michel Visser, NVM Register Makelaar en Register Taxateur in Vathorst, Amersfoort" width="1280" height="720" loading="lazy">
       <div class="about-badge">15+ jaar Vathorst &amp; Amersfoort</div>
     </div>
     <div class="about-text">
@@ -1281,75 +320,9 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<!-- ====== RECENTE WONINGEN ====== -->
-<section class="recent">
-  <div class="recent-inner">
-    <div class="recent-head">
-      <div>
-        <div class="section-eyebrow">Recent in de markt</div>
-        <h2>Onlangs door ons<br><em>verkocht &amp; aangekocht</em>.</h2>
-      </div>
-      <a href="#" class="btn-secondary">Bekijk alle woningen</a>
-    </div>
-
-    <div class="recent-grid">
-      <article class="property">
-        <div class="property-img">
-          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80" alt="Lichte eengezinswoning met tuin in Vathorst, wijk De Velden" width="800" height="600" loading="lazy">
-          <span class="property-status sold">Verkocht</span>
-        </div>
-        <div class="property-body">
-          <div class="property-loc">Vathorst · De Velden</div>
-          <h3>Lichte eengezins&shy;woning met tuin op het zuiden</h3>
-          <div class="property-price">€ 545.000</div>
-          <div class="property-meta">
-            <span><strong>142</strong> m²</span>
-            <span><strong>4</strong> slaapkamers</span>
-            <span>Bj <strong>2008</strong></span>
-          </div>
-        </div>
-      </article>
-
-      <article class="property">
-        <div class="property-img">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Karaktervolle hoekwoning aan rustig hofje in Hoogland, Amersfoort" width="800" height="600" loading="lazy">
-          <span class="property-status">Te koop</span>
-        </div>
-        <div class="property-body">
-          <div class="property-loc">Amersfoort · Hoogland</div>
-          <h3>Karakter&shy;volle hoekwoning aan rustig hofje</h3>
-          <div class="property-price">€ 695.000</div>
-          <div class="property-meta">
-            <span><strong>168</strong> m²</span>
-            <span><strong>5</strong> slaapkamers</span>
-            <span>Bj <strong>1996</strong></span>
-          </div>
-        </div>
-      </article>
-
-      <article class="property">
-        <div class="property-img">
-          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161df9d8?w=800&q=80" alt="Modern 3-kamer appartement met balkon in Vathorst Laak" width="800" height="600" loading="lazy">
-          <span class="property-status sold">Verkocht</span>
-        </div>
-        <div class="property-body">
-          <div class="property-loc">Vathorst · Laak</div>
-          <h3>Modern 3-kamer appartement met balkon</h3>
-          <div class="property-price">€ 385.000</div>
-          <div class="property-meta">
-            <span><strong>92</strong> m²</span>
-            <span><strong>2</strong> slaapkamers</span>
-            <span>Bj <strong>2019</strong></span>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ====== VERKOCHT BAND ====== -->
 <section class="verkocht-band" aria-label="Verkocht in Amersfoort">
-  <img src="images/verkocht-bord.jpg" alt="Verkocht-bord van Vathorst Wonen in een Amersfoorts weiland" width="1280" height="500" loading="lazy">
+  <img src="verkocht-bord.jpg" alt="Verkocht-bord van Vathorst Wonen in een Amersfoorts weiland" width="1280" height="500" loading="lazy">
   <div class="verkocht-band-content">
     <h3>Klaar om jouw<br>woning te <em>verkopen</em>?<br>Wij staan voor je klaar.</h3>
   </div>
@@ -1587,7 +560,7 @@ a{color:inherit;text-decoration:none}
     <div class="footer-grid">
       <div>
         <div class="footer-logo">
-          <img src="images/logo.png" alt="Vathorst Wonen Makelaars" width="200" height="82" class="logo-img logo-img--inverted">
+          <img src="logo.png" alt="Vathorst Wonen Makelaars" width="200" height="82" class="logo-img logo-img--inverted">
         </div>
         <p class="footer-tagline">"Een woning vinden of verkopen — altijd op een persoonlijke en toegankelijke manier."</p>
       </div>
@@ -1803,73 +776,6 @@ a{color:inherit;text-decoration:none}
 }
 </script>
 
-<script>
-// ===== Smooth scroll for in-page nav =====
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const href = a.getAttribute('href');
-    if (href.length > 1) {
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({behavior:'smooth', block:'start'});
-        closeMenu();
-      }
-    }
-  });
-});
-
-// ===== Mobile menu =====
-const toggle   = document.querySelector('.menu-toggle');
-const nav      = document.getElementById('mainNav');
-const backdrop = document.getElementById('navBackdrop');
-
-function openMenu(){
-  nav.classList.add('open');
-  backdrop.classList.add('show');
-  document.body.classList.add('nav-open');
-  toggle.setAttribute('aria-expanded','true');
-  toggle.setAttribute('aria-label','Menu sluiten');
-}
-function closeMenu(){
-  nav.classList.remove('open');
-  backdrop.classList.remove('show');
-  document.body.classList.remove('nav-open');
-  toggle.setAttribute('aria-expanded','false');
-  toggle.setAttribute('aria-label','Menu openen');
-}
-toggle.addEventListener('click', () => {
-  toggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
-});
-backdrop.addEventListener('click', closeMenu);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-
-// ===== FAQ accordion =====
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    document.querySelectorAll('.faq-q').forEach(b => b.setAttribute('aria-expanded','false'));
-    btn.setAttribute('aria-expanded', String(!expanded));
-  });
-});
-
-// ===== Subtle entrance animations =====
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = 'translateY(0)';
-      io.unobserve(entry.target);
-    }
-  });
-}, {threshold:0.1});
-
-document.querySelectorAll('.service-card, .situatie-card, .property, .trust-item, .cred, .wijk, .faq-item').forEach(el => {
-  el.style.opacity = 0;
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'opacity .8s ease, transform .8s ease';
-  io.observe(el);
-});
-</script>
+<script src="script.js" defer></script>
 </body>
 </html>

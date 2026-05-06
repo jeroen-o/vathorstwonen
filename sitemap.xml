@@ -13,70 +13,17 @@
     </image:image>
   </url>
 
-  <url>
-    <loc>https://www.vathorstwonen.nl/woning-kopen/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/woning-verkopen/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/aankoopbegeleiding/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/gratis-zoekopdracht/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/waardebepaling/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/jouw-situatie/eerst-kopen-of-verkopen/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/jouw-situatie/als-wegen-scheiden/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/over-ons/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/medewerkers/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/vestigingen/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.vathorstwonen.nl/contact/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
+  <url><loc>https://www.vathorstwonen.nl/woning-kopen.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/aankoopbegeleiding.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/gratis-zoekopdracht.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/woning-verkopen.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/jouw-verkoopmakelaar.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/waardebepaling.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/jouw-situatie.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/eerst-kopen-of-verkopen.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/als-wegen-scheiden.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/over-ons.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/medewerkers.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/vestigingen.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.vathorstwonen.nl/contact.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
