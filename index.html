@@ -106,33 +106,17 @@ a{color:inherit;text-decoration:none}
   max-width:1320px;margin:0 auto;padding:18px 32px;
   display:flex;align-items:center;justify-content:space-between;gap:40px;
 }
-.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.logo-mark{
-  width:46px;height:46px;
-  background:var(--navy);
-  border-radius:8px;
-  display:grid;place-items:center;
-  position:relative;
+.logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.logo-img{
+  height:54px;width:auto;
+  display:block;
+  transition:opacity .25s;
 }
-.logo-mark svg{width:28px;height:28px}
-.logo-text{
-  display:flex;flex-direction:column;line-height:1;
-}
-.logo-text-top{
-  font-family:'Instrument Serif',serif;
-  font-size:22px;
-  color:var(--navy);
-  letter-spacing:-0.01em;
-}
-.logo-text-top em{
-  color:var(--magenta);font-style:normal;font-weight:400;
-}
-.logo-text-bottom{
-  font-size:9px;
-  letter-spacing:0.32em;
-  color:var(--navy);
-  margin-top:4px;
-  font-weight:600;
+.logo:hover .logo-img{opacity:0.85}
+/* On the dark footer, the logo is on a navy background — white-on-white block + invert keeps brand recognisable */
+.logo-img--inverted{
+  filter:brightness(0) invert(1);
+  opacity:0.92;
 }
 
 .nav{display:flex;gap:32px;align-items:center}
@@ -816,10 +800,8 @@ a{color:inherit;text-decoration:none}
   display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:64px;
   margin-bottom:64px;
 }
-.footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:24px}
-.footer-logo .logo-text-top{color:#fff}
-.footer-logo .logo-text-bottom{color:rgba(255,255,255,0.7)}
-.footer-logo .logo-mark{background:var(--magenta)}
+.footer-logo{display:flex;align-items:center;margin-bottom:24px}
+.footer-logo .logo-img{height:48px}
 .footer-tagline{
   font-family:'Instrument Serif',serif;
   font-size:22px;line-height:1.4;
@@ -1008,9 +990,8 @@ a{color:inherit;text-decoration:none}
   .value-cta-box{padding:40px 24px}
   .footer-grid{grid-template-columns:1fr;gap:36px}
   .verkocht-band-content h3{font-size:28px}
-  .logo-text-top{font-size:18px}
-  .logo-text-bottom{font-size:8px;letter-spacing:0.24em}
   .intro-body p:first-child::first-letter{font-size:48px}
+  .logo-img{height:42px}
   .wijken-grid{grid-template-columns:1fr}
   .faq-q{font-size:18px;padding:20px 0;gap:16px}
   .faq-icon{width:32px;height:32px}
@@ -1049,17 +1030,8 @@ a{color:inherit;text-decoration:none}
 <!-- ====== HEADER ====== -->
 <header class="header">
   <div class="header-inner">
-    <a href="#" class="logo" aria-label="Vathorst Wonen home">
-      <div class="logo-mark">
-        <svg viewBox="0 0 32 32" fill="none">
-          <path d="M5 14 L11 20 L13 14 L16 22 L19 14 L21 20 L27 14" stroke="#E91E8C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="16" cy="9" r="3" fill="#fff"/>
-        </svg>
-      </div>
-      <div class="logo-text">
-        <span class="logo-text-top"><em>Vathorst</em> wonen</span>
-        <span class="logo-text-bottom">MAKELAARS</span>
-      </div>
+    <a href="/" class="logo" aria-label="Vathorst Wonen Makelaars - home">
+      <img src="images/logo.png" alt="Vathorst Wonen Makelaars" width="200" height="82" class="logo-img">
     </a>
 
     <nav class="nav" id="mainNav" aria-label="Hoofdnavigatie">
@@ -1615,16 +1587,7 @@ a{color:inherit;text-decoration:none}
     <div class="footer-grid">
       <div>
         <div class="footer-logo">
-          <div class="logo-mark">
-            <svg viewBox="0 0 32 32" fill="none">
-              <path d="M5 14 L11 20 L13 14 L16 22 L19 14 L21 20 L27 14" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="16" cy="9" r="3" fill="#fff"/>
-            </svg>
-          </div>
-          <div class="logo-text">
-            <span class="logo-text-top"><em>Vathorst</em> wonen</span>
-            <span class="logo-text-bottom">MAKELAARS</span>
-          </div>
+          <img src="images/logo.png" alt="Vathorst Wonen Makelaars" width="200" height="82" class="logo-img logo-img--inverted">
         </div>
         <p class="footer-tagline">"Een woning vinden of verkopen — altijd op een persoonlijke en toegankelijke manier."</p>
       </div>
