@@ -1,0 +1,25 @@
+# Vathorst Wonen Makelaars — robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login/
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Belangrijkste AI-crawlers expliciet toegestaan (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+Sitemap: https://www.vathorstwonen.nl/sitemap.xml
